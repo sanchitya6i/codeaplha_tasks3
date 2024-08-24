@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>IMAGE GALLERY</title>
+    <link rel="stylesheet" href="stYle.css" />
+  </head>
+  <body>
+    <div class="gallery-wrap">
+      <img src="back2.png" id="backBtn" />
+      <div class="gallery">
+        <div>
+          <span><img src="image1.jfif" /></span>
+          <span><img src="image2.jfif" /></span>
+          <span><img src="image3.jfif" /></span>
+        </div>
+        <div>
+          <span><img src="image4.jfif" /></span>
+          <span><img src="image5.jfif" /></span>
+          <span><img src="image6.jfif" /></span>
+        </div>
+      </div>
+      <img src="front.png" id="frontBtn" />
+    </div>
+    <script>
+      let scrollContainer = document.querySelector(".gallery");
+      let backBtn = document.getElementById("backBtn");
+      let frontBtn = document.getElementById("frontBtn");
+
+      scrollContainer.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+      });
+
+      frontBtn.addEventListener("click", () => {
+        scrollContainer.style.scrollBehavior = "smooth";
+        scrollContainer.scrollLeft += 900;
+      });
+
+      backBtn.addEventListener("click", () => {
+        scrollContainer.style.scrollBehavior = "smooth";
+        scrollContainer.scrollLeft -= 900;
+      });
+    </script>
+  </body>
+</html>
